@@ -5,12 +5,12 @@ const NYQUIST = 22050;
 
 const CMAP = [
   [0, [0, 0, 0]],
-  [55, [0, 0, 120]],
-  [110, [0, 110, 130]],
-  [160, [0, 130, 38]],
-  [200, [120, 135, 0]],
-  [235, [160, 50, 0]],
-  [255, [170, 155, 130]],
+  [55, [30, 30, 30]],
+  [110, [70, 70, 70]],
+  [160, [110, 110, 110]],
+  [200, [160, 160, 160]],
+  [235, [200, 200, 200]],
+  [255, [240, 240, 240]],
 ];
 
 function freqBin(f) {
@@ -34,10 +34,10 @@ function ampToRGB(amp) {
 
 // ── Dot config
 // ────────────────────────────────────────────────────────────────
-const STEP = 3;
-const SW = 4;
-const SH = 2;
-const WOBBLE = 6;
+const STEP = 1.5;
+const SW = 2.5;
+const SH = 1.2;
+const WOBBLE = 8;
 const SCROLL = 1;
 
 let mic, fft;
@@ -80,7 +80,7 @@ function newStream() {
 
   sDir = random(['L', 'R', 'U', 'D']);
   sBlend = random(
-      ['source-over', 'source-over', 'lighten', 'exclusion', 'difference']);
+      ['source-over', 'source-over', 'source-over', 'lighten', 'exclusion']);
   sAge = 0;
   sLifeFrames = floor(random(10, 31) * 60);
 
